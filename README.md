@@ -4,8 +4,8 @@ This script is for **Mac OS X** bash.
 
 What this script does
 ---------------------
-It periodically captures screen shots of up to 3 monitors of your Mac, and saves them in `~/Desktop/ScreenLog` folder.
-
+It periodically captures the screen of up to 3 monitors of your Mac, and saves them in `~/Desktop/ScreenLog` folder.
+The default capture interval is 300 secs.
 
 Why one needs this script?
 --------------------------
@@ -30,6 +30,5 @@ Type `ps -A|grep scap` and you see `scap in the process list, it is working.
 
 Customizing
 -----------
-All the real work is done in the `scap.sh` file.
-Capture intervals, path and file names are quite straight forward in the script.
-The default capture interval is 300 secs.
+All the capturing work is done in the `scap` file.
+Edit the `scap` file, to change capture intervals, path and file names those are quite straight forward in the script.
