@@ -1,4 +1,4 @@
-mac_screenshot_stash
+Mac Screenshot Stash
 ====================
 This script is for **Mac OS X** bash.
 
