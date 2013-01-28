@@ -1,0 +1,77 @@
+#!/bin/bash
+shot_interval=300
+lastfile1=""
+lastfile2=""
+
+while true; do 
+	path=~/Desktop/ScreenLog/$(date +%Y\-%m\-%d)
+	if [ ! -d $path ]; then
+		mkdir $path
+	fi
+
+	#HID idle time
+	idle_time=$"`ioreg -c IOHIDSystem | awk '/HIDIdleTime/ {print int($NF/1000000000); exit}'`"
+	echo current idle time:$idle_time
+
+	if [ $idle_time -lt $shot_interval ]; then
+
+		echo taking
+		#last screen shots
+		lastfile1=$(ls $path/*_1.jpg 2>/dev/null | tail -n 1)
+		lastfile2=$(ls $path/*_2.jpg 2>/dev/null | tail -n 1)
+
+		#new screen shot file names
+		imagefile1=$path/$(date +%Y\-%m\-%d_%H.%M.%S)_1.jpg
+		imagefile2=$path/$(date +%Y\-%m\-%d_%H.%M.%S)_2.jpg
+
+		#take shots
+		screencapture -C -t jpg -x $imagefile1 $imagefile2
+		echo taken
+
+		#removing duplicate image 1
+		#if [ -f $imagefile1 ]; then
+			#echo removing jpeg header of image 1
+			#jhead -purejpg $imagefile1 > /dev/null
+
+			#last shot exists?
+			#if [ ${#lastfile1} -gt 0 ]; then
+			#	echo comparing $lastfile1 $imagefile1
+
+				#cropping for comparison
+			#	convert $lastfile1 -crop 1440x879+0+21 $path/last_cropped.jpg
+			#	jhead -purejpg $path/last_cropped.jpg
+			#	convert $imagefile1 -crop 1440x879+0+21 $path/new_cropped.jpg
+			#	jhead -purejpg $path/new_cropped.jpg
+
+			#	if cmp -s $path/last_cropped.jpg $path/new_cropped.jpg; then
+			#		echo deleting idential 1st image
+			#		rm $imagefile1
+			#	fi
+
+				#rm $path/last_cropped.jpg
+				#rm $path/new_cropped.jpg
+			#fi
+		#fi
+
+		#removing duplicate image 2
+		if [ -f $imagefile2 ]; then
+			echo removing jpeg header of image 2
+			jhead -purejpg $imagefile2 > /dev/null
+
+			#last shot exists?
+			if [ ${#lastfile2} -gt 0 ]; then
+				echo comparing $lastfile2 $imagefile2
+				#if cmp -s $lastfile2 $imagefile2; then
+				#	echo deleting 2nd image
+				#	rm $imagefile2
+				#fi
+			fi
+		fi
+
+
+	else
+		echo skipping
+	fi
+
+	sleep $shot_interval
+done
