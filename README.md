@@ -24,12 +24,8 @@ And then open your terminal, type the following:
 
     scap_launcher.sh
 
-which launches the screen capture script in the background.
-
-To test whether the screen capture script is running correctly,
-run it directly by typing:
-
-    scap
+The screen capture script is now running in the background.
+Type `ps -A|grep scap` and you see `scap in the process list, it is working.
 
 
 Customizing
