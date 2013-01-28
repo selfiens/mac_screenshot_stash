@@ -3,7 +3,7 @@ mac_screenshot_stash
 
 What this script does
 ---------------------
-It periodically captures screen shots of up to 3 monitors of your Mac, and saves them in Desktop/ScreenLog folder.
+It periodically captures screen shots of up to 3 monitors of your Mac, and saves them in `~/Desktop/ScreenLog` folder.
 
 
 Why one needs this script?
