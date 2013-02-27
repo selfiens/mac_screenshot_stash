@@ -14,7 +14,7 @@ The script is created for activity-journaling purposes.
 I report what I have been doing and done to a team log. 
 But it's a pretty challenging job to recall what I did yesterday, or even this morning.
 So I created this script, and I let it collect screen shots it in the background.
-I review the screen shots at the end of the day(or sometimes days later) 
+At the end of the day(or sometimes days later) I review those screen shots 
 to sort out log items eligible for the team reporting.
 
 
