@@ -12,9 +12,9 @@ Why one needs this script?
 The script is created for activity-journaling purposes.
 
 I report what I have been doing and done to a team log. 
-But it's usually challenging job to recall what I have done after a certain time has passed.
+But it's usually challenging job to recall what I have done after a certain period has passed.
 So I let this script collect screen shots it in the background, and at the end of the day (or sometimes days later) 
-I review those screen shots and sort out log items eligible for the team reporting.
+I review those screen shots and sort out eligible log items for the team reporting.
 
 
 How to use
